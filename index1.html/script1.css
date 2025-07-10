@@ -1,0 +1,48 @@
+// Typewriter effect
+const words = ["Web Developer","UI/UX Enthusiast","Problem Solver"];
+let i=0, offset=0, forwards=true, skipCount=0, skipDelay=15;
+const speed=200;
+
+const type = () => {
+  const text = words[i];
+  if(forwards){
+    if(offset < text.length){
+      document.getElementById("txt").textContent += text[offset++];
+    } else {
+      skipCount++;
+      if(skipCount==skipDelay) forwards=false;
+    }
+  } else {
+    if(offset > 0){
+      document.getElementById("txt").textContent = text.substring(0, --offset);
+    } else {
+      forwards=true; skipCount=0; i=(i+1)%words.length;
+    }
+  }
+  setTimeout(type, speed);
+};
+type();
+
+// GSAP animations
+gsap.registerPlugin();
+gsap.from("nav", { y:-100, duration:1, ease:"bounce.out" });
+gsap.utils.toArray(".section").forEach(section => {
+  gsap.fromTo(section, { opacity:0, y:50 }, { 
+    opacity:1, y:0, 
+    scrollTrigger: { trigger:section, start:"top 80%" }, 
+    duration:1 
+  });
+});
+gsap.utils.toArray(".project-card").forEach(card => {
+  card.addEventListener("mouseenter", () => gsap.to(card, { scale:1.05, duration:0.3 }));
+  card.addEventListener("mouseleave", () => gsap.to(card, { scale:1, duration:0.3 }));
+});
+
+// Smooth scroll links
+document.querySelectorAll('nav ul li a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute("href"))
+      .scrollIntoView({ behavior:"smooth" });
+  });
+});
