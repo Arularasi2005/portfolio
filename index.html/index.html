@@ -2,59 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name | Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name – Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- ScrollTrigger plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Three.js (optional) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r155/three.min.js"></script>
 </head>
 <body>
+  <header class="hero">
+    <div id="three-container"></div>
+    <div class="hero-content">
+      <h1>Hello, I'm Your Name.</h1>
+      <p>Web Developer & Designer.</p>
+      <a href="#work" class="cta-button">View My Work</a>
+    </div>
+  </header>
+
   <nav class="navbar">
-    <div class="logo">YourName</div>
     <ul>
+      <li><a href="#hero">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <header id="hero">
-    <div class="intro">
-      <h1>Hi, I'm Your Name</h1>
-      <div class="typewriter"><span id="txt"></span></div>
-      <a href="#work" class="btn">See My Work</a>
-    </div>
-  </header>
-
-  <section id="about" class="section">
+  <section id="about" class="section about">
     <h2>About Me</h2>
-    <p>I’m a web developer specializing in building (and occasionally designing) exceptional digital experiences.</p>
+    <p>Brief introduction about you, your skills, passions.</p>
   </section>
 
-  <section id="work" class="section">
+  <section id="work" class="section work">
     <h2>My Projects</h2>
-    <div class="projects">
+    <div class="projects-grid">
+      <!-- Project cards -->
       <div class="project-card">
-        <img src="https://via.placeholder.com/300x200" alt="Project 1"/>
-        <h3>Project One</h3>
+        <img src="assets/project1.jpg" alt="Project 1" />
+        <div class="project-info">
+          <h3>Project One</h3>
+          <p>Short description.</p>
+        </div>
       </div>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300x200" alt="Project 2"/>
-        <h3>Project Two</h3>
-      </div>
-      <div class="project-card">
-        <img src="https://via.placeholder.com/300x200" alt="Project 3"/>
-        <h3>Project Three</h3>
-      </div>
+      <!-- Add more -->
     </div>
   </section>
 
-  <section id="contact" class="section">
+  <section id="contact" class="section contact">
     <h2>Get In Touch</h2>
     <form>
-      <input type="text" placeholder="Your Name" required/>
-      <input type="email" placeholder="Your Email" required/>
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
+      <input type="text" placeholder="Your Name" />
+      <input type="email" placeholder="Email Address" />
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
     </form>
   </section>
 
@@ -62,7 +65,8 @@
     <p>&copy; 2025 Your Name. All rights reserved.</p>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="script.js"></script>
+  <script src="main.js"></script>
+  <!-- optionally include Three.js hero script -->
+  <script src="three-hero.js"></script>
 </body>
 </html>
